@@ -1,13 +1,482 @@
 <html>
   <head>
     <style>
+      html,
       body {
+        padding: 0;
         background-color: black;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      video {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        position: relative;
+        top: 2%;
+      }
+
+      .head1 {
+        height: 75vh;
+        top: 5vh;
+        position: relative;
+        display: none;
+        transition: 0.5s transform ease;
+        transform: scale(1) rotate(0);
+      }
+      
+      .head1[data-swagger="one"] {
+        transform: scale(1.2) rotate(-20deg);
+      }
+
+      .head1[data-swagger="two"] {
+        transform: scale(1.2) rotate(20deg);
+      }
+  
+      .head1.left {
+        left: -15%;
+      }
+
+      .head1.lefter {
+        left: -30%;
+      }
+
+      .head1.right {
+        left: 15%;
+      }
+
+      .head1.righter {
+        left: 30%;
+      }
+      
+      .go-go-head1 .head1.center,
+      .go-go-head1.head1-three .head1.left,
+      .go-go-head1.head1-three .head1.center,
+      .go-go-head1.head1-three .head1.right,
+      .go-go-head1.head1-five .head1.lefter,
+      .go-go-head1.head1-five .head1.left,
+      .go-go-head1.head1-five .head1.center,
+      .go-go-head1.head1-five .head1.right,
+      .go-go-head1.head1-five .head1.righter {
+        display: inline-block;
+      }
+
+      .face1 {
+        height: 100%;
+        top: 0;
+        left: 30%;
+        position: absolute;
+        transform: translateX(-50%);
+      }
+
+      .mouth1 {
+        position: absolute;
+        height: 18.327%;
+        top: 72.5%;
+        transform: translateX(-121%);
+        transition: 0.05s transform ease;
+      }
+  
+      .mouth1-open .head1 {
+        transform: scale(1.2) rotate(20deg);
+      }
+
+      .mouth1-open .mouth1 {
+        transform: translateX(-121%) translateY(35%);
+      }
+  
+
+      .head2 {
+        height: 75vh;
+        top: 5vh;
+        position: relative;
+        display: none;
+        transition: 0.5s transform ease;
+        transform: scale(1) rotate(0);
+      }
+
+      .go-go-head2 .head2 {
+        display: inline-block;
+      }
+  
+      .go-go-head1.go-go-head2 .head1 {
+        opacity: 0.65;  
+      }
+
+      .face2 {
+        height: 100%;
+        top: 0;
+        left: 30%;
+        position: absolute;
+        transform: translateX(-50%);
+      }
+
+      .mouth2 {
+        position: absolute;
+        height: 24.46%;
+        top: 47.5%;
+        transform: translateX(-60%);
+        transition: 0.05s transform ease;
+      }
+
+      .mouth2-open .mouth2 {
+        transform: translateX(-82%) translateY(40%);
+      }
+
+
+      .head3 {
+        height: 75vh;
+        top: 5vh;
+        position: relative;
+        display: none;
+        transition: 0.5s transform ease;
+        transform: scale(1) rotate(0);
+      }
+
+      .go-go-head3 .head3 {
+        display: inline-block;
+      }
+  
+      .face3 {
+        height: 100%;
+        top: 0;
+        left: 30%;
+        position: absolute;
+        transform: translateX(-50%);
+      }
+
+      .dealwithit {
+        position: absolute;
+        height: 23.7075%;
+        top: 20.5%;
+        transform: translateX(-60%) translateY(-250%);
+        transition: 3s transform ease;
+      }
+
+      .dealtwithit .dealwithit {
+        transform: translateX(-60%) translateY(0);
+      }
+
+
+      .rappa {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+      }
+
+
+      .dj {
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        padding: 0 10px;
+        display: none;
+      }
+
+      .dj.show {
+        display: block;
+      }
+
+      .time-slider {
+        width: 95%;
+      }
+
+      .time {
+        width: 5%;
+        color: white;
+        font-size: 20px;
+        margin-left: 20px;
       }
     </style>
   </head>
   <body>
-    <video autoplay src="fire.mov" type="video/mp4">
-    </video>
+    <video autoplay loop src="lund.mp4" type="video/mp4"></video>
+    <audio autoplay loop src="thunderstruck-song.mp3" id="audio"></audio>
+
+    <div class='rappa'>
+      <div class='head1 lefter'>
+        <img class='face1' src='face.png' />
+        <img class='mouth1' src='mouth.png' />
+      </div><div class='head1 left'>
+        <img class='face1' src='face.png' />
+        <img class='mouth1' src='mouth.png' />
+      </div><div class='head1 center'>
+        <img class='face1' src='face.png' />
+        <img class='mouth1' src='mouth.png' />
+      </div><div class='head1 right'>
+        <img class='face1' src='face.png' />
+        <img class='mouth1' src='mouth.png' />
+      </div><div class='head1 righter'>
+        <img class='face1' src='face.png' />
+        <img class='mouth1' src='mouth.png' />
+      </div><div class='head2'>
+        <img class='face2' src='face2.png' />
+        <img class='mouth2' src='mouth2.png' />
+      </div><div class='head3'>
+        <img class='face3' src='face3.png' />
+        <img class='dealwithit' src='dealwithit.png' />
+      </div>
+    </div>
+
+    <div class='dj'>
+      <input class='time-slider' type='range' />
+      <span class='time'></span>
+    </div>
+
+
+    <script>
+      (function () {
+        var newEvents = [];
+        var runEvery = 30;
+
+        var rappaEl = document.querySelector('.rappa')
+        var timeSliderEl = document.querySelector('.time-slider')
+        var timeEl = document.querySelector('.time')
+        var djEl = document.querySelector('.dj')
+
+
+        function _any(array) {
+          for (var i = 0; i < array.length; i++) {
+            if (array[i]) return true
+          }
+
+          return false
+        }
+
+        function _findLastIndex(array, predicate) {
+          var lastIndex = 0
+
+          for (var i = 0; i < array.length; i++) {
+            if (predicate(array[i])) {
+              lastIndex = i
+
+            } else {
+              return lastIndex
+            }
+          }
+
+          return lastIndex
+        }
+
+
+
+
+        var openMouths = []
+        function mouth(isOpen, trackIndex) {
+          openMouths[trackIndex || 0] = isOpen
+          rappaEl.classList.toggle('mouth1-open', _any(openMouths))
+        }
+
+        var openMouths2 = []
+        function mouth2(isOpen, trackIndex) {
+          openMouths2[trackIndex || 0] = isOpen
+          rappaEl.classList.toggle('mouth2-open', _any(openMouths2))
+        }
+
+        function three(doShow) {
+          rappaEl.classList.toggle('head1-three', doShow)
+        }
+
+        function five(doShow) {
+          rappaEl.classList.toggle('head1-five', doShow)
+        }
+
+        var headOneShowing = false
+        function headOne(shouldShow) {
+          headOneShowing = shouldShow
+          rappaEl.classList.toggle('go-go-head1', headOneShowing)
+        }
+
+        var headTwoShowing = false
+        function headTwo(shouldShow) {
+          headTwoShowing = shouldShow
+          rappaEl.classList.toggle('go-go-head2', headTwoShowing)
+        }
+
+
+        var dealtWithIt = false
+        function dealWithIt(shouldDeal) {
+          dealtWithIt = shouldDeal
+          rappaEl.classList.toggle('dealtwithit', dealtWithIt)
+        }
+
+
+
+        document.addEventListener('keydown', function (event) {
+          function handle(e, handler, d) {
+            event.preventDefault()
+            if (typeof d === 'undefined') d = true
+            newEvents.push({ e: e, d: d, t: audio.currentTime })
+            handler(d)
+          }
+
+          switch (event.key) {
+            case 'd':
+              event.preventDefault()
+              djEl.classList.toggle('show')
+              break
+
+            case 'm':
+              handle('m', mouth)
+              break
+
+            case 'n':
+              handle('n', mouth2)
+              break
+
+            case 'z':
+              handle('z', headOne, !headOneShowing)
+              break
+
+            case 'x':
+              handle('x', headTwo, !headTwoShowing)
+              break
+
+            case 't':
+              handle('t', dealWithIt, !dealtWithIt)
+              break
+
+            case '3':
+              handle('3', three)
+              break
+
+            case '5':
+              handle('5', five)
+              break
+
+            case 'Escape':
+              event.preventDefault()
+              console.info(JSON.stringify(newEvents));
+          }
+        });
+
+
+
+        document.addEventListener('keyup', function (event) {
+          function handle(e, handler) {
+            event.preventDefault()
+            newEvents.push({ e: e, d: false, t: audio.currentTime })
+            handler(false)
+          }
+
+          switch (event.key) {
+            case 'm':
+              handle('m', mouth)
+              break
+
+            case 'n':
+              handle('n', mouth2)
+              break
+
+            case '3':
+              handle('3', three)
+              break
+
+            case '5':
+              handle('5', five)
+              break
+          }
+        });
+
+
+
+
+        function mergeTracks(tracks) {
+          var events = []
+
+          Object.keys(tracks).forEach(function (name, trackIndex) {
+            var adjust = tracks[name].adjust
+            tracks[name].events.forEach(function (event) {
+              event.t += adjust
+              event.x = trackIndex + 1
+              events.push(event)
+            })
+          })
+
+          events.sort(function (a, b) {
+            return a.t - b.t
+          })
+
+          return events
+        }
+
+
+        var index = 0
+        var currentEvent
+        var playbackEvents = mergeTracks({
+          ohahahahahahohoh: { adjust: -0.1, events: [{"e":"m","d":true,"t":5.241022},{"e":"m","d":false,"t":5.352605},{"e":"m","d":true,"t":5.465153},{"e":"m","d":false,"t":5.584958},{"e":"m","d":true,"t":5.704804},{"e":"m","d":false,"t":5.824605},{"e":"m","d":true,"t":5.937298},{"e":"m","d":false,"t":6.264758},{"e":"m","d":true,"t":6.393262},{"e":"m","d":false,"t":6.504903},{"e":"m","d":true,"t":6.617328},{"e":"m","d":false,"t":6.720741},{"e":"m","d":true,"t":6.834763},{"e":"m","d":false,"t":7.104862},{"e":"m","d":true,"t":7.225173},{"e":"m","d":false,"t":7.328975},{"e":"m","d":true,"t":7.425081},{"e":"m","d":false,"t":7.600616},{"e":"m","d":true,"t":8.817583},{"e":"m","d":false,"t":8.912561},{"e":"m","d":true,"t":9.040818},{"e":"m","d":false,"t":9.152321},{"e":"m","d":true,"t":9.272711},{"e":"m","d":false,"t":9.368571},{"e":"m","d":true,"t":9.496851},{"e":"m","d":false,"t":9.802637},{"e":"m","d":true,"t":9.937327},{"e":"m","d":false,"t":10.040767},{"e":"m","d":true,"t":10.152905},{"e":"m","d":false,"t":10.25671},{"e":"m","d":true,"t":10.386316},{"e":"m","d":false,"t":10.649061},{"e":"m","d":true,"t":10.840952},{"e":"m","d":false,"t":10.952684},{"e":"m","d":true,"t":11.057088},{"e":"m","d":false,"t":11.200827},{"e":"m","d":true,"t":12.401205},{"e":"m","d":false,"t":12.504869},{"e":"m","d":true,"t":12.633215},{"e":"m","d":false,"t":12.736369},{"e":"m","d":true,"t":12.865309},{"e":"m","d":false,"t":12.960641},{"e":"m","d":true,"t":13.081055},{"e":"m","d":false,"t":13.392973},{"e":"m","d":true,"t":13.544915},{"e":"m","d":false,"t":13.640832},{"e":"m","d":true,"t":13.760704},{"e":"m","d":false,"t":13.848652},{"e":"m","d":true,"t":13.984897},{"e":"m","d":false,"t":14.280838},{"e":"m","d":true,"t":14.433312},{"e":"m","d":false,"t":14.536662},{"e":"m","d":true,"t":14.648993},{"e":"m","d":false,"t":14.824735},{"e":"m","d":true,"t":16.00914},{"e":"m","d":false,"t":16.096874},{"e":"m","d":true,"t":16.225143},{"e":"m","d":false,"t":16.329059},{"e":"m","d":true,"t":16.457152},{"e":"m","d":false,"t":16.560841},{"e":"m","d":true,"t":16.68106},{"e":"m","d":false,"t":17.02464},{"e":"m","d":true,"t":17.154559},{"e":"m","d":false,"t":17.240847},{"e":"m","d":true,"t":17.369151},{"e":"m","d":false,"t":17.465404},{"e":"m","d":true,"t":17.587539},{"e":"m","d":false,"t":17.904368},{"e":"m","d":true,"t":18.017489},{"e":"m","d":false,"t":18.136797},{"e":"m","d":true,"t":18.23314},{"e":"m","d":false,"t":18.384812},{"e":"m","d":true,"t":19.587709},{"e":"m","d":false,"t":19.680774},{"e":"m","d":true,"t":19.801037},{"e":"m","d":false,"t":19.904646},{"e":"m","d":true,"t":20.016914},{"e":"m","d":false,"t":20.128558},{"e":"m","d":true,"t":20.249121},{"e":"m","d":false,"t":20.59274},{"e":"m","d":true,"t":20.704931},{"e":"m","d":false,"t":20.800854},{"e":"m","d":true,"t":20.929141},{"e":"m","d":false,"t":21.033},{"e":"m","d":true,"t":21.153287},{"e":"m","d":false,"t":21.464738},{"e":"m","d":true,"t":21.601008},{"e":"m","d":false,"t":21.704692},{"e":"m","d":true,"t":21.833024},{"e":"m","d":false,"t":22.01676},{"e":"m","d":true,"t":23.193105},{"e":"m","d":false,"t":23.304648},{"e":"m","d":true,"t":23.425152},{"e":"m","d":false,"t":23.528854},{"e":"m","d":true,"t":23.641222},{"e":"m","d":false,"t":23.736751},{"e":"m","d":true,"t":23.873074},{"e":"m","d":false,"t":24.171197},{"e":"m","d":true,"t":24.313163},{"e":"m","d":false,"t":24.416857},{"e":"m","d":true,"t":24.538503},{"e":"m","d":false,"t":24.632681},{"e":"m","d":true,"t":24.761138},{"e":"m","d":false,"t":25.024717},{"e":"m","d":true,"t":25.209162},{"e":"m","d":false,"t":25.328937},{"e":"m","d":true,"t":25.425096},{"e":"m","d":false,"t":25.576819},{"e":"m","d":true,"t":26.756405},{"e":"m","d":false,"t":26.856731},{"e":"m","d":true,"t":26.985216},{"e":"m","d":false,"t":27.089224},{"e":"m","d":true,"t":27.20898},{"e":"m","d":false,"t":27.296777},{"e":"m","d":true,"t":27.409007},{"e":"m","d":false,"t":27.696636},{"e":"m","d":true,"t":27.872686},{"e":"m","d":false,"t":27.976765},{"e":"m","d":true,"t":28.097434},{"e":"m","d":false,"t":28.200957},{"e":"m","d":true,"t":28.313144},{"e":"m","d":false,"t":28.592798},{"e":"m","d":true,"t":28.729268},{"e":"m","d":false,"t":28.84887},{"e":"m","d":true,"t":28.955851},{"e":"m","d":false,"t":29.122529},{"e":"m","d":true,"t":30.329037},{"e":"m","d":false,"t":30.4331},{"e":"m","d":true,"t":30.58508},{"e":"m","d":false,"t":30.696948},{"e":"m","d":true,"t":30.817295},{"e":"m","d":false,"t":30.920983},{"e":"m","d":true,"t":31.041075},{"e":"m","d":false,"t":31.336971},{"e":"m","d":true,"t":31.47352},{"e":"m","d":false,"t":31.576758},{"e":"m","d":true,"t":31.690205},{"e":"m","d":false,"t":31.800725},{"e":"m","d":true,"t":31.921491},{"e":"m","d":false,"t":32.216578},{"e":"m","d":true,"t":32.353101},{"e":"m","d":false,"t":32.464688},{"e":"m","d":true,"t":32.577199},{"e":"m","d":false,"t":32.768774},{"e":"m","d":true,"t":33.96106},{"e":"m","d":false,"t":34.064682},{"e":"m","d":true,"t":34.193214},{"e":"m","d":false,"t":34.296798},{"e":"m","d":true,"t":34.409176},{"e":"m","d":false,"t":34.528784},{"e":"m","d":true,"t":34.649391},{"e":"m","d":false,"t":34.952885},{"e":"m","d":true,"t":35.080851},{"e":"m","d":false,"t":35.200804},{"e":"m","d":true,"t":35.312823},{"e":"m","d":false,"t":35.408797},{"e":"m","d":true,"t":35.53687},{"e":"m","d":false,"t":35.816892},{"e":"m","d":true,"t":35.945083},{"e":"m","d":false,"t":36.072834},{"e":"m","d":true,"t":36.161402},{"e":"m","d":false,"t":36.321034},{"e":"m","d":true,"t":37.553154},{"e":"m","d":false,"t":37.656713},{"e":"m","d":true,"t":37.785265},{"e":"m","d":false,"t":37.88986},{"e":"m","d":true,"t":38.017083},{"e":"m","d":false,"t":38.106875},{"e":"m","d":true,"t":38.233353},{"e":"m","d":false,"t":38.552817},{"e":"m","d":true,"t":38.697001},{"e":"m","d":false,"t":38.784808},{"e":"m","d":true,"t":38.913293},{"e":"m","d":false,"t":39.016929},{"e":"m","d":true,"t":39.137405},{"e":"m","d":false,"t":39.424744},{"e":"m","d":true,"t":39.577076},{"e":"m","d":false,"t":39.70485},{"e":"m","d":true,"t":39.801162},{"e":"m","d":false,"t":39.936816},{"e":"m","d":true,"t":41.201161},{"e":"m","d":false,"t":41.312829},{"e":"m","d":true,"t":41.424892},{"e":"m","d":false,"t":41.528922},{"e":"m","d":true,"t":41.625183},{"e":"m","d":false,"t":41.72077},{"e":"m","d":true,"t":41.825133},{"e":"m","d":false,"t":42.128827},{"e":"m","d":true,"t":42.297328},{"e":"m","d":false,"t":42.400924},{"e":"m","d":true,"t":42.513235},{"e":"m","d":false,"t":42.616835},{"e":"m","d":true,"t":42.753102},{"e":"m","d":false,"t":43.056717},{"e":"m","d":true,"t":43.177125},{"e":"m","d":false,"t":43.2916},{"e":"m","d":true,"t":43.385323},{"e":"m","d":false,"t":43.568935},{"e":"m","d":true,"t":44.793139},{"e":"m","d":false,"t":44.880621},{"e":"m","d":true,"t":45.00914},{"e":"m","d":false,"t":45.104896},{"e":"m","d":true,"t":45.233085},{"e":"m","d":false,"t":45.328685},{"e":"m","d":true,"t":45.457422},{"e":"m","d":false,"t":45.760744},{"e":"m","d":true,"t":45.89748},{"e":"m","d":false,"t":46.016893},{"e":"m","d":true,"t":46.137155},{"e":"m","d":false,"t":46.232852},{"e":"m","d":true,"t":46.345051},{"e":"m","d":false,"t":46.632966},{"e":"m","d":true,"t":46.7694},{"e":"m","d":false,"t":46.880847},{"e":"m","d":true,"t":47.001208},{"e":"m","d":false,"t":47.136778},{"e":"m","d":true,"t":48.393098},{"e":"m","d":false,"t":48.496839},{"e":"m","d":true,"t":48.61717},{"e":"m","d":false,"t":48.712634},{"e":"m","d":true,"t":48.84293},{"e":"m","d":false,"t":48.93654},{"e":"m","d":true,"t":49.081341},{"e":"m","d":false,"t":49.385052},{"e":"m","d":true,"t":49.513246},{"e":"m","d":false,"t":49.608691},{"e":"m","d":true,"t":49.736973},{"e":"m","d":false,"t":49.841148},{"e":"m","d":true,"t":49.976784},{"e":"m","d":false,"t":50.24885},{"e":"m","d":true,"t":50.401119},{"e":"m","d":false,"t":50.512745},{"e":"m","d":true,"t":50.633197},{"e":"m","d":false,"t":50.800986}] },
+          thunder: { adjust: -0.1, events: [{"e":"m","d":true,"t":29.221505},{"e":"m","d":false,"t":29.428771},{"e":"m","d":true,"t":29.628843},{"e":"m","d":false,"t":29.956216},{"e":"m","d":true,"t":32.860753},{"e":"m","d":false,"t":33.084311},{"e":"m","d":true,"t":33.244744},{"e":"m","d":false,"t":33.508732},{"e":"m","d":true,"t":36.412631},{"e":"m","d":false,"t":36.628318},{"e":"m","d":true,"t":36.836873},{"e":"m","d":true,"t":37.188134},{"e":"m","d":false,"t":37.188832},{"e":"m","d":true,"t":39.925934},{"e":"m","d":false,"t":40.172335},{"e":"m","d":true,"t":40.420656},{"e":"m","d":false,"t":40.700356},{"e":"m","d":true,"t":43.57262},{"e":"m","d":false,"t":43.788442},{"e":"m","d":true,"t":44.052621},{"e":"m","d":false,"t":44.388508},{"e":"m","d":true,"t":47.188738},{"e":"m","d":false,"t":47.436179},{"e":"m","d":true,"t":47.684551},{"e":"m","d":false,"t":47.996376},{"e":"m","d":true,"t":50.812857},{"e":"m","d":false,"t":51.020092},{"e":"m","d":true,"t":51.268556},{"e":"m","d":false,"t":51.604367}, {"e":"m","d":true,"t":54.490354},{"e":"m","d":false,"t":54.705891},{"e":"m","d":true,"t":54.874052},{"e":"m","d":false,"t":55.217709},{"e":"m","d":true,"t":58.03389},{"e":"m","d":false,"t":58.281605},{"e":"m","d":true,"t":58.490362},{"e":"m","d":false,"t":58.82599},{"e":"m","d":true,"t":61.609963},{"e":"m","d":false,"t":61.873668},{"e":"m","d":true,"t":62.06565},{"e":"m","d":false,"t":62.377738}, {"e":"m","d":true,"t":70.609925},{"e":"m","d":false,"t":70.808864},{"e":"m","d":true,"t":71.039156},{"e":"m","d":false,"t":71.37496},{"e":"m","d":true,"t":77.815955},{"e":"m","d":false,"t":77.991694},{"e":"m","d":true,"t":78.208056},{"e":"m","d":true,"t":78.561135},{"e":"m","d":false,"t":78.57574},{"e":"m","d":true,"t":85.018793},{"e":"m","d":false,"t":85.234415},{"e":"m","d":true,"t":85.411045},{"e":"m","d":true,"t":85.762527},{"e":"m","d":true,"t":85.781551},{"e":"m","d":true,"t":85.8018},{"e":"m","d":false,"t":85.802403},{"e":"m","d":true,"t":92.193433},{"e":"m","d":false,"t":92.425111},{"e":"m","d":true,"t":92.569546},{"e":"m","d":true,"t":92.920502},{"e":"m","d":true,"t":92.941387},{"e":"m","d":true,"t":92.961966},{"e":"m","d":true,"t":92.982531},{"e":"m","d":true,"t":93.003237},{"e":"m","d":true,"t":93.023848},{"e":"m","d":true,"t":93.04398},{"e":"m","d":true,"t":93.064548},{"e":"m","d":true,"t":93.085799},{"e":"m","d":true,"t":93.10658},{"e":"m","d":true,"t":93.127816},{"e":"m","d":true,"t":93.148991},{"e":"m","d":false,"t":93.152738}] },
+          partySize: { adjust: -0.1, events: [{"e":"3","d":true,"t":29.294465},{"e":"3","d":false,"t":29.494035},{"e":"3","d":true,"t":29.686528},{"e":"3","d":true,"t":30.037315},{"e":"3","d":true,"t":30.058536},{"e":"3","d":false,"t":30.061778},{"e":"3","d":true,"t":32.878109},{"e":"3","d":false,"t":33.070235},{"e":"3","d":true,"t":33.318161},{"e":"3","d":true,"t":33.669325},{"e":"3","d":true,"t":33.689747},{"e":"3","d":true,"t":33.710511},{"e":"3","d":false,"t":33.728377},{"e":"3","d":true,"t":36.446361},{"e":"3","d":false,"t":36.701879},{"e":"3","d":true,"t":36.886373},{"e":"3","d":true,"t":37.236882},{"e":"3","d":true,"t":37.257926},{"e":"3","d":true,"t":37.2781},{"e":"3","d":true,"t":37.298927},{"e":"3","d":false,"t":37.317754},{"e":"3","d":true,"t":40.030247},{"e":"3","d":false,"t":40.310054},{"e":"3","d":true,"t":40.470129},{"e":"3","d":true,"t":40.821378},{"e":"3","d":true,"t":40.842217},{"e":"3","d":true,"t":40.863782},{"e":"3","d":false,"t":40.878698},{"e":"5","d":true,"t":43.646478},{"e":"5","d":false,"t":43.942245},{"e":"5","d":true,"t":44.086551},{"e":"5","d":true,"t":44.437701},{"e":"5","d":true,"t":44.45849},{"e":"5","d":true,"t":44.478843},{"e":"5","d":false,"t":44.485676},{"e":"5","d":true,"t":47.262163},{"e":"5","d":false,"t":47.525978},{"e":"5","d":true,"t":47.694312},{"e":"5","d":true,"t":48.047778},{"e":"5","d":true,"t":48.066059},{"e":"5","d":true,"t":48.087369},{"e":"5","d":true,"t":48.107425},{"e":"5","d":false,"t":48.125938},{"e":"5","d":true,"t":50.862446},{"e":"5","d":false,"t":51.10193},{"e":"5","d":true,"t":51.286263},{"e":"5","d":true,"t":51.637272},{"e":"5","d":true,"t":51.658346},{"e":"5","d":true,"t":51.678689},{"e":"5","d":true,"t":51.699357},{"e":"5","d":true,"t":51.720468},{"e":"5","d":true,"t":51.741459},{"e":"5","d":true,"t":51.762018},{"e":"5","d":true,"t":51.782907},{"e":"5","d":false,"t":51.797682},{"e":"5","d":true,"t":54.494187},{"e":"5","d":false,"t":54.71789},{"e":"5","d":true,"t":54.918263},{"e":"5","d":true,"t":55.269482},{"e":"5","d":true,"t":55.290254},{"e":"5","d":true,"t":55.310967},{"e":"5","d":true,"t":55.331029},{"e":"5","d":true,"t":55.352321},{"e":"5","d":false,"t":55.357788},{"e":"5","d":true,"t":58.054216},{"e":"5","d":false,"t":58.278127},{"e":"5","d":true,"t":58.518283},{"e":"5","d":false,"t":58.79009},{"e":"5","d":true,"t":61.678431},{"e":"5","d":false,"t":61.909739},{"e":"5","d":true,"t":62.102339},{"e":"5","d":true,"t":62.453217},{"e":"5","d":true,"t":62.474176},{"e":"5","d":true,"t":62.49525},{"e":"5","d":true,"t":62.5168},{"e":"5","d":false,"t":62.525722}, {"e":"3","d":true,"t":77.802505},{"e":"3","d":true,"t":78.152243},{"e":"3","d":true,"t":78.173046},{"e":"3","d":true,"t":78.194521},{"e":"3","d":true,"t":78.215508},{"e":"3","d":true,"t":78.236681},{"e":"3","d":true,"t":78.257676},{"e":"3","d":true,"t":78.278585},{"e":"3","d":true,"t":78.299351},{"e":"3","d":true,"t":78.32055},{"e":"3","d":true,"t":78.341121},{"e":"3","d":true,"t":78.362469},{"e":"3","d":true,"t":78.382476},{"e":"3","d":true,"t":78.403737},{"e":"3","d":true,"t":78.424517},{"e":"3","d":true,"t":78.445657},{"e":"3","d":true,"t":78.465797},{"e":"3","d":true,"t":78.486101},{"e":"3","d":true,"t":78.507192},{"e":"3","d":true,"t":78.528063},{"e":"3","d":true,"t":78.548785},{"e":"3","d":true,"t":78.569375},{"e":"3","d":true,"t":78.590118},{"e":"3","d":true,"t":78.6109},{"e":"3","d":true,"t":78.631802},{"e":"3","d":true,"t":78.652841},{"e":"3","d":true,"t":78.673697},{"e":"3","d":true,"t":78.694982},{"e":"3","d":true,"t":78.715779},{"e":"3","d":true,"t":78.736162},{"e":"3","d":false,"t":78.745865},{"e":"5","d":true,"t":84.996593},{"e":"5","d":true,"t":85.347566},{"e":"5","d":true,"t":85.367797},{"e":"5","d":true,"t":85.388646},{"e":"5","d":true,"t":85.409955},{"e":"5","d":true,"t":85.430998},{"e":"5","d":true,"t":85.451185},{"e":"5","d":true,"t":85.472036},{"e":"5","d":true,"t":85.49282},{"e":"5","d":true,"t":85.513663},{"e":"5","d":true,"t":85.53414},{"e":"5","d":true,"t":85.554323},{"e":"5","d":true,"t":85.575316},{"e":"5","d":true,"t":85.596159},{"e":"5","d":true,"t":85.616827},{"e":"5","d":true,"t":85.637504},{"e":"5","d":true,"t":85.658324},{"e":"5","d":true,"t":85.679687},{"e":"5","d":true,"t":85.69975},{"e":"5","d":true,"t":85.720748},{"e":"5","d":true,"t":85.741708},{"e":"5","d":true,"t":85.762511},{"e":"5","d":true,"t":85.782531},{"e":"5","d":true,"t":85.802959},{"e":"5","d":true,"t":85.824279},{"e":"5","d":true,"t":85.845279},{"e":"5","d":true,"t":85.8655},{"e":"5","d":true,"t":85.885341},{"e":"5","d":true,"t":85.906714},{"e":"5","d":true,"t":85.927759},{"e":"5","d":true,"t":85.948301},{"e":"5","d":true,"t":85.968285},{"e":"5","d":false,"t":85.972053},{"e":"5","d":true,"t":92.230061},{"e":"5","d":true,"t":92.581168},{"e":"5","d":true,"t":92.602027},{"e":"5","d":true,"t":92.623173},{"e":"5","d":true,"t":92.643376},{"e":"5","d":true,"t":92.664586},{"e":"5","d":true,"t":92.685322},{"e":"5","d":true,"t":92.705525},{"e":"5","d":true,"t":92.726909},{"e":"5","d":true,"t":92.747725},{"e":"5","d":true,"t":92.768648},{"e":"5","d":true,"t":92.788913},{"e":"5","d":true,"t":92.809972},{"e":"5","d":true,"t":92.831227},{"e":"5","d":true,"t":92.851887},{"e":"5","d":true,"t":92.873265},{"e":"5","d":true,"t":92.893611},{"e":"5","d":true,"t":92.914263},{"e":"5","d":true,"t":92.935177},{"e":"5","d":true,"t":92.955899},{"e":"5","d":true,"t":92.976987},{"e":"5","d":true,"t":92.99808},{"e":"5","d":true,"t":93.020524},{"e":"5","d":true,"t":93.039089},{"e":"5","d":true,"t":93.06027},{"e":"5","d":true,"t":93.081172},{"e":"5","d":true,"t":93.101815},{"e":"5","d":true,"t":93.123322},{"e":"5","d":true,"t":93.144145},{"e":"5","d":true,"t":93.164633},{"e":"5","d":true,"t":93.185413},{"e":"5","d":true,"t":93.206186},{"e":"5","d":true,"t":93.226973},{"e":"5","d":true,"t":93.247828},{"e":"5","d":true,"t":93.268684},{"e":"5","d":true,"t":93.289767},{"e":"5","d":true,"t":93.310955},{"e":"5","d":true,"t":93.331695},{"e":"5","d":true,"t":93.352088},{"e":"5","d":true,"t":93.373268},{"e":"5","d":true,"t":93.394139},{"e":"5","d":true,"t":93.414284},{"e":"5","d":true,"t":93.435303},{"e":"5","d":true,"t":93.456437},{"e":"5","d":false,"t":93.461523}] },
+          singa: { adjust: -0.1, events: [{"e":"x","d":true,"t":64.504402},{"e":"x","d":false,"t":70.610984},{"e":"x","d":true,"t":71.819336},{"e":"x","d":false,"t":77.817708},{"e":"x","d":true,"t":78.913727},{"e":"x","d":false,"t":84.996236},{"e":"x","d":true,"t":86.148202}] },
+          backupSingas: { adjust: -0.1, events: [{"e":"z","d":true,"t":8.725594}, {"e":"z","d":false,"t":64.492734},{"e":"z","d":true,"t":70.636298},{"e":"z","d":false,"t":71.763988},{"e":"z","d":true,"t":77.81758},{"e":"z","d":false,"t":78.890058},{"e":"z","d":true,"t":85.023095},{"e":"z","d":false,"t":86.095248},{"e":"z","d":true,"t":92.217083},{"e":"z","d":false,"t":93.161176}] },
+          vocals: { adjust: -0.1, events: [{"e":"n","d":true,"t":64.599222},{"e":"n","d":false,"t":64.694393},{"e":"n","d":true,"t":64.776081},{"e":"n","d":false,"t":64.878031},{"e":"n","d":true,"t":64.998483},{"e":"n","d":true,"t":65.34959},{"e":"n","d":true,"t":65.370634},{"e":"n","d":true,"t":65.392458},{"e":"n","d":true,"t":65.411857},{"e":"n","d":false,"t":65.429831},{"e":"n","d":true,"t":66.310358},{"e":"n","d":false,"t":66.42211},{"e":"n","d":true,"t":66.559705},{"e":"n","d":false,"t":66.661841},{"e":"n","d":true,"t":66.798465},{"e":"n","d":false,"t":66.918022},{"e":"n","d":true,"t":67.04609},{"e":"n","d":false,"t":67.157859},{"e":"n","d":true,"t":67.278187},{"e":"n","d":false,"t":67.381803},{"e":"n","d":true,"t":67.502422},{"e":"n","d":false,"t":67.613931},{"e":"n","d":true,"t":67.726221},{"e":"n","d":false,"t":68.02169},{"e":"n","d":true,"t":68.134547},{"e":"n","d":false,"t":68.437958},{"e":"n","d":true,"t":68.582469},{"e":"n","d":false,"t":68.910354},{"e":"n","d":true,"t":69.006323},{"e":"n","d":true,"t":69.357043},{"e":"n","d":true,"t":69.378038},{"e":"n","d":false,"t":69.390105},{"e":"n","d":true,"t":71.798301},{"e":"n","d":false,"t":71.934188},{"e":"n","d":true,"t":72.030268},{"e":"n","d":false,"t":72.141893},{"e":"n","d":true,"t":72.238541},{"e":"n","d":true,"t":72.589336},{"e":"n","d":true,"t":72.609422},{"e":"n","d":true,"t":72.629782},{"e":"n","d":true,"t":72.649808},{"e":"n","d":false,"t":72.653797},{"e":"n","d":true,"t":73.550137},{"e":"n","d":false,"t":73.686353},{"e":"n","d":true,"t":73.814361},{"e":"n","d":false,"t":73.93405},{"e":"n","d":true,"t":74.038502},{"e":"n","d":false,"t":74.333918},{"e":"n","d":true,"t":74.470284},{"e":"n","d":false,"t":74.566216},{"e":"n","d":true,"t":74.718297},{"e":"n","d":false,"t":74.82223},{"e":"n","d":true,"t":74.942389},{"e":"n","d":false,"t":75.246007},{"e":"n","d":true,"t":75.358577},{"e":"n","d":false,"t":75.486106},{"e":"n","d":true,"t":75.590137},{"e":"n","d":false,"t":75.759684},{"e":"n","d":true,"t":75.918473},{"e":"n","d":true,"t":76.26932},{"e":"n","d":true,"t":76.290534},{"e":"n","d":false,"t":76.29372},{"e":"n","d":true,"t":79.038437},{"e":"n","d":false,"t":79.150052},{"e":"n","d":true,"t":79.238551},{"e":"n","d":false,"t":79.37403},{"e":"n","d":true,"t":79.534377},{"e":"n","d":true,"t":79.885537},{"e":"n","d":true,"t":79.905888},{"e":"n","d":true,"t":79.928684},{"e":"n","d":true,"t":79.947237},{"e":"n","d":true,"t":79.968092},{"e":"n","d":true,"t":79.989379},{"e":"n","d":true,"t":80.012281},{"e":"n","d":true,"t":80.030819},{"e":"n","d":true,"t":80.051661},{"e":"n","d":false,"t":80.061864},{"e":"n","d":true,"t":80.758237},{"e":"n","d":false,"t":80.870232},{"e":"n","d":true,"t":81.006094},{"e":"n","d":false,"t":81.118006},{"e":"n","d":true,"t":81.222487},{"e":"n","d":false,"t":81.46193},{"e":"n","d":true,"t":82.158638},{"e":"n","d":false,"t":82.34205},{"e":"n","d":true,"t":82.454162},{"e":"n","d":false,"t":82.670069},{"e":"n","d":true,"t":82.806241},{"e":"n","d":false,"t":82.950001},{"e":"n","d":true,"t":83.078313},{"e":"n","d":false,"t":83.334184},{"e":"n","d":true,"t":83.413976},{"e":"n","d":false,"t":83.742131},{"e":"n","d":true,"t":86.166371},{"e":"n","d":false,"t":86.294319},{"e":"n","d":true,"t":86.406207},{"e":"n","d":false,"t":86.534008},{"e":"n","d":true,"t":86.654386},{"e":"n","d":true,"t":87.004605},{"e":"n","d":true,"t":87.024487},{"e":"n","d":true,"t":87.044667},{"e":"n","d":true,"t":87.065368},{"e":"n","d":true,"t":87.086165},{"e":"n","d":true,"t":87.106037},{"e":"n","d":true,"t":87.127207},{"e":"n","d":false,"t":87.133951},{"e":"n","d":true,"t":87.838291},{"e":"n","d":false,"t":87.997881},{"e":"n","d":true,"t":88.134032},{"e":"n","d":false,"t":88.247323},{"e":"n","d":true,"t":88.366318},{"e":"n","d":false,"t":88.678511},{"e":"n","d":true,"t":88.822322},{"e":"n","d":false,"t":89.062229},{"e":"n","d":true,"t":89.438362},{"e":"n","d":false,"t":89.581903},{"e":"n","d":true,"t":89.75836},{"e":"n","d":false,"t":89.918143},{"e":"n","d":true,"t":90.054482},{"e":"n","d":false,"t":90.181788},{"e":"n","d":true,"t":90.414462},{"e":"n","d":true,"t":90.765478},{"e":"n","d":true,"t":90.786229},{"e":"n","d":true,"t":90.806396},{"e":"n","d":true,"t":90.830403},{"e":"n","d":true,"t":90.848316},{"e":"n","d":false,"t":90.86316}] }
+        });
+
+        function run(event) {
+          switch (event.e) {
+            case 'm':
+              mouth(event.d, event.x)
+              break
+
+            case 'n':
+              mouth2(event.d, event.x)
+              break
+
+            case 'z':
+              headOne(event.d)
+              break
+
+            case 'x':
+              headTwo(event.d)
+              break
+
+            case 't':
+              dealWithIt(event.d)
+              break
+
+            case '3':
+              three(event.d, event.x)
+              break
+
+            case '5':
+              five(event.d, event.x)
+              break
+          }
+        }
+
+        setInterval(function () {
+          while ((currentEvent = playbackEvents[index]) && currentEvent.t <= audio.currentTime) {
+            run(currentEvent)
+            index++
+          }
+
+          timeEl.innerHTML = timeSliderEl.value = parseInt(audio.currentTime, 10)
+        }, runEvery);
+
+
+
+        audio.addEventListener('playing', function () {
+          timeSliderEl.setAttribute('max', parseInt(audio.duration, 10))
+        })
+
+
+        timeSliderEl.addEventListener('input', function (e) {
+          var newTime = timeSliderEl.value
+          audio.currentTime = newTime
+          newEvents = []
+
+          index = _findLastIndex(playbackEvents, function (event) {
+            return event.t <= newTime
+          })
+        })
+      }())
+    </script>
   </body>
 </html>
