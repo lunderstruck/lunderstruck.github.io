@@ -300,6 +300,12 @@
           rappaEl.classList.toggle('go-go-head2', headTwoShowing)
         }
 
+        var headThreeShowing = false
+        function headThree(shouldShow) {
+          headThreeShowing = shouldShow
+          rappaEl.classList.toggle('go-go-head3', headThreeShowing)
+        }
+
 
         var dealtWithIt = false
         function dealWithIt(shouldDeal) {
@@ -337,6 +343,10 @@
 
             case 'x':
               handle('x', headTwo, !headTwoShowing)
+              break
+
+            case 'c':
+              handle('c', headThree, !headThreeShowing)
               break
 
             case 't':
@@ -435,6 +445,10 @@
 
             case 'x':
               headTwo(event.d)
+              break
+
+            case 'c':
+              headThree(event.d)
               break
 
             case 't':
