@@ -183,6 +183,10 @@
         transform: scale(0) rotate(-1440deg);
       }
 
+      .rappa.reset {
+        transition: none;
+      }
+
 
       .lightning1,
       .lightning2,
@@ -400,12 +404,26 @@
           rappaEl.classList.toggle(daKlass, toggleOn)
         }
 
+        function removeKlasses() {
+          rappaEl.classList.remove('zoomin')
+          rappaEl.classList.remove('spinnin')
+          rappaEl.classList.add('reset')
+          setTimeout(function () {
+            rappaEl.classList.remove('reset')
+          }, 0)
+        }
+
+
         document.addEventListener('keydown', function (event) {
           function handle(e, handler, d) {
             event.preventDefault()
             if (typeof d === 'undefined') d = true
             newEvents.push({ e: e, d: d, t: audio.currentTime })
             handler(d)
+          }
+
+          if (event.key !== 'd' && event.key !== 'Escape') {
+            removeKlasses()
           }
 
           switch (event.key) {
